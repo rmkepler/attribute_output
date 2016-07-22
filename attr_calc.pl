@@ -55,7 +55,7 @@ foreach my $indiv (sort keys %hash) { #cycles through sample names
         foreach my $attr (@attr) {
                 push (@attributes, $hash{$indiv}{$gene}{$attr})
             } 
-            print OUT $indiv,"\t",$gene,"\t",join("\t", @attributes)."\n";
+            print OUT $indiv,"\t",$gene,"\t",join("\t", @attributes),"\n";
         }
     }
 print OUT "\n\npsim is the percent similarity of non-gap alignment columns\n";
@@ -66,7 +66,7 @@ print OUT "pindel is the percent of glen attributed to gaps, assumed to be indel
 close (OUT);
 
 #subroutine here receives $col (the gene), $strain (the isolate) and an array of attributes to obtain
-#retrives both alleles for a given strain and performs pairwise distances calculation
+#retrives both alleles for a given strain and performs percent identity calculation
 #returns a hash of attribute names (key) and their values 
 
 sub align {
